@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Health Assessment Form</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f5;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 30px;
+			color: #333333;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #ffffff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+			color: #333333;
+		}
+
+		input[type="number"], select {
+			padding: 8px;
+			border-radius: 5px;
+			border: 1px solid #cccccc;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 16px;
+			margin-bottom: 20px;
+			background-color: #f0f8ff;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			padding: 12px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+	<link rel="icon" type="image/x-icon" href="https://jnj-content-lab2.brightspotcdn.com/dims4/default/78c6313/2147483647/strip/false/crop/1440x666+0+0/resize/1440x666!/quality/90/?url=https%3A%2F%2Fjnj-production-jnj.s3.us-east-1.amazonaws.com%2Fbrightspot%2F1b%2F32%2F2e138abbf1792e49103c9e3516a8%2Fno-one-would-believe-me-when-i-suspected-i-had-lung-cancer-0923-new.jpg">
+</head>
+<body>
+	<div class="container">
+		<h1>Health Assessment Form</h1>
+		<form method="POST" action="{{ url_for('results') }}">
+
+			<!-- Add a label for the form title -->
+			<label for="form_title" class="sr-only">Health Assessment Form</label>
+			<input type="hidden" name="form_title" id="form_title" value="Health Assessment Form">
+
+			<label for="name">Name:</label>
+<input type="text" name="name" id="name" required>
+
+			<label for="age">Age (0-100 years):</label>
+			<input type="number" name="age" id="age" min="0" max="100" required value="30">
+
+			<label for="gender">Gender:</label>
+			<select name="gender" id="gender" required>
+				<option value="" disabled>Select gender</option>
+				<option value="male" selected>Male</option>
+				<option value="female">Female</option>
+			</select>
+
+			<p>Update the following:</p>
+
+			<label for="air_pollution">Air Pollution (0-500 AQI):</label>
+			<input type="number" name="air_pollution" id="air_pollution" min="1" max="500" required value="1">
+			<!-- ... (same as before) ... -->
+
+<label>Alcohol Consumption:</label>
+
+<label for="beer_volume">Beer Volume (in ml):</label>
+<input type="number" name="beer_volume" id="beer_volume" min="0" max="2000" required value="0">
+
+<label for="wine_volume">Wine Volume (in ml):</label>
+<input type="number" name="wine_volume" id="wine_volume" min="0" max="2000" required value="0">
+
+<label for="spirits_volume">Spirits Volume (in ml):</label>
+<input type="number" name="spirits_volume" id="spirits_volume" min="0" max="2000" required value="0">
+
+<!-- ... (same as before) ... -->
+
+
+			<label>Dust Allergy:</label>
+
+			<label for="dust_allergy_new">New</label>
+			<input type="checkbox" name="dust_allergy_new" id="dust_allergy_new" value="1">
+
+			<label for="dust_allergy_old">Old</label>
+			<input type="checkbox" name="dust_allergy_old" id="dust_allergy_old" value="1">
+
+			<label for="dust_allergy_road">Road</label>
+			<input type="checkbox" name="dust_allergy_road" id="dust_allergy_road" value="1">
+
+			<label>Occupational Hazards:</label>
+
+			<label for="occupational_hazards_biological">Biological</label>
+			<input type="checkbox" name="occupational_hazards_biological" id="occupational_hazards_biological" value="1">
+
+			<label for="occupational_hazards_ergonomic">Ergonomic</label>
+			<input type="checkbox" name="occupational_hazards_ergonomic" id="occupational_hazards_ergonomic" value="1">
+
+			<label for="occupational_hazards_chemical">Chemical</label>
+			<input type="checkbox" name="occupational_hazards_chemical" id="occupational_hazards_chemical" value="1">
+
+			<label for="occupational_hazards_physical">Physical</label>
+			<input type="checkbox" name="occupational_hazards_physical" id="occupational_hazards_physical" value="1">
+
+			<label for="genetic_risk">Genetic Risk (0-100 risk level):</label>
+			<input type="number" name="genetic_risk" id="genetic_risk" min="1" max="100" required value="1">
+
+			<label for="chronic_lung_disease">Chronic Lung Disease (0-100 severity):</label>
+			<input type="number" name="chronic_lung_disease" id="chronic_lung_disease" min="1" max="100" required value="1">
+
+			<label for="balanced_diet">Balanced Diet (0-7 days per week):</label>
+			<input type="number" name="balanced_diet" id="balanced_diet" min="1" max="9" required value="1">
+
+			<label>Obesity:</label>
+
+			<label for="height">Height (in meters):</label>
+			<input type="number" name="height" id="height" min="0" max="3" step="0.01" required value="1.70">
+
+			<label for="weight">Weight (in kilograms):</label>
+			<input type="number" name="weight" id="weight" min="0" max="200" required value="70">
+
+
+			<label>Smoking:</label>
+
+			<label for="smoking_bidi">Bidi (/per day):</label>
+			<input type="number" name="smoking_bidi" id="smoking_bidi" required value="0">
+
+			<label for="smoking_cigar">Cigar (/per day):</label>
+			<input type="number" name="smoking_cigar" id="smoking_cigar"  required value="0">
+
+			<label for="smoking_cigarette">Cigarette (/per day):</label>
+			<input type="number" name="smoking_cigarette" id="smoking_cigarette"  required value="0">
+
+			<label for="smoking_electric_cigar">Electric Cigar (/per day):</label>
+			<input type="number" name="smoking_electric_cigar" id="smoking_electric_cigar"  required value="0">
+
+			<label for="smoking_hookah">Hookah (/per day):</label>
+			<input type="number" name="smoking_hookah" id="smoking_hookah"  required value="0">
+
+			<label>Passive Smoking:</label>
+
+<label for="exposed_to_bidi">Bidi (/per day):</label>
+<input type="number" name="exposed_to_bidi" id="exposed_to_bidi"  required value="0">
+
+<label for="exposed_to_cigar">Cigar (/per day):</label>
+<input type="number" name="exposed_to_cigar" id="exposed_to_cigar" required value="0">
+
+<label for="exposed_to_cigarette">Cigarette (/per day):</label>
+<input type="number" name="exposed_to_cigarette" id="exposed_to_cigarette"  required value="0">
+
+<label for="exposed_to_electric_cigar">Electric Cigar (/per day):</label>
+<input type="number" name="exposed_to_electric_cigar" id="exposed_to_electric_cigar" required value="0">exposed_to
+<label for="exposed_to_hookah">Hookah (/per day):</label>
+<input type="number" name="exposed_to_hookah" id="exposed_to_hookah" required value="0">
+
+
+			<label for="chest_pain">Chest Pain:</label>
+<select name="chest_pain" id="chest_pain" required>
+	<option>None</option>
+	<option>Very Mild (Occasional slight pain)</option>
+	<option>Mild (Pain when taking a deep breath)</option>
+	<option>Moderate (Persistent pain affecting daily activities)</option>
+	<option>Severe (Pain even at rest)</option>
+	<option>Life-threatening (Severe pain causing inability to move or breathe properly)</option>
+</select>
+
+
+			<label for="coughing_blood">Coughing of Blood:</label>
+<select name="coughing_blood" id="coughing_blood" required>
+	<option>None</option>
+	<option>Very Mild (Streaks of blood)</option>
+	<option>Mild (Small amount)</option>
+	<option>Moderate (Noticeable amount)</option>
+	<option>Severe (Large amount)</option>
+	<option>Life-threatening (Profuse bleeding)</option>
+</select>
+
+<label for="fatigue">Fatigue:</label>
+<select name="fatigue" id="fatigue" required>
+	<option>None</option>
+	<option>Very Mild (Slight tiredness after heavy exertion)</option>
+	<option>Mild (Tiredness after normal activity)</option>
+	<option>Moderate (Tiredness impacting daily activities)</option>
+	<option>Severe (Tiredness at rest)</option>
+	<option>Life-threatening (Extreme tiredness causing inability to move or function)</option>
+</select>
+
+<label for="weight_loss">Weight Loss:</label>
+<select name="weight_loss" id="weight_loss" required>
+	<option>None</option>
+	<option>Very Mild (Occasional slight pain)</option>
+	<option>Mild (Pain when taking a deep breath)</option>
+	<option>Moderate (Persistent pain affecting daily activities)</option>
+	<option>Severe (Pain even at rest)</option>
+	<option>Life-threatening (Severe pain causing inability to move or breathe properly)</option>
+</select>
+
+<label for="shortness_of_breath">Shortness of Breath:</label>
+<select name="shortness_of_breath" id="shortness_of_breath" required>
+	<option>None</option>
+	<option>Mild (Slight difficulty on exertion)</option>
+	<option>Moderate (Difficulty after walking a few minutes)</option>
+	<option>Severe (Difficulty even at rest)</option>
+	<option>Very Severe (Unable to complete sentences without pausing for breath)</option>
+	<option>Life-threatening (Breathing stops for periods of time)</option>
+</select>
+
+<label for="wheezing">Wheezing:</label>
+<select name="wheezing" id="wheezing" required>
+	<option>None</option>
+	<option>Very Mild (Occasional wheezing with exertion)</option>
+	<option>Mild (Wheezing a few times a week)</option>
+	<option>Moderate (Wheezing most days)</option>
+	<option>Severe (Wheezing multiple times a day)</option>
+	<option>Very Severe (Constant wheezing that interferes with daily activities)</option>
+</select>
+
+<label for="swallowing_difficulty">Swallowing Difficulty:</label>
+<select name="swallowing_difficulty" id="swallowing_difficulty" required>
+	<option>None</option>
+	<option>Very Mild (Occasional difficulty swallowing)</option>
+	<option>Mild (Difficulty swallowing a few times a week)</option>
+	<option>Moderate (Difficulty swallowing most meals)</option>
+	<option>Severe (Difficulty swallowing every meal)</option>
+	<option>Very Severe (Unable to swallow, requiring alternative feeding methods)</option>
+</select>
+
+<label for="clubbing">Clubbing of Finger Nails:</label>
+<select name="clubbing" id="clubbing" required>
+	<option>None</option>
+	<option>Very Mild (Slight rounding of nails)</option>
+	<option>Mild (Rounding and enlargement of nails)</option>
+	<option>Moderate (Further rounding, enlargement and nail bed softening)</option>
+	<option>Severe (Large, bulbous, misshapen nails)</option>
+	<option>Life-threatening (Not applicable as this symptom is not life-threatening)</option>
+</select>
+
+<label for="frequent_cold">Frequent Cold:</label>
+<select name="frequent_cold" id="frequent_cold" required>
+	<option>None (No colds in the past year)</option>
+	<option>Very Mild (1-2 colds in the past year)</option>
+	<option>Mild (3-4 colds in the past year)</option>
+	<option>Moderate (5-6 colds in the past year)</option>
+	<option>Severe (7-8 colds in the past year)</option>
+	<option>Very Severe (More than 8 colds in the past year)</option>
+</select>
+
+<label for="dry_cough">Dry Cough:</label>
+<select name="dry_cough" id="dry_cough" required>
+	<option>None</option>
+	<option>Very Mild (Occasional coughing)</option>
+	<option>Mild (Coughing a few times a day)</option>
+	<option>Moderate (Coughing throughout the day)</option>
+	<option>Severe (Persistent coughing that interrupts daily activities)</option>
+	<option>Very Severe (Constant coughing that prevents sleep and normal activities)</option>
+</select>
+
+<label for="snoring">Snoring:</label>
+<select name="snoring" id="snoring" required>
+	<option>None</option>
+	<option>Very Mild (Occasional snoring)</option>
+	<option>Mild (Snoring a few nights a week)</option>
+	<option>Moderate (Snoring most nights)</option>
+	<option>Severe (Snoring every night)</option>
+	<option>Very Severe (Loud snoring that can be heard in other rooms)</option>
+</select>
+
+<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>
